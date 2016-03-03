@@ -35,4 +35,33 @@ Rails.application.configure do
 
   #Cookie Configuration
   config.x.cookies.secure = false
+
+  #####################
+  ## Logstash config ##
+  #####################
+
+  # Enable the logstasher logs for the current environment
+
+  config.logstasher.enabled = true
+  config.logstasher.logger = Logger.new("#{Rails.root}/log/logstasher.log")
+
+  # Each of the following lines are optional. If you want to selectively disable log subscribers.
+  # config.logstasher.controller_enabled = false
+  # config.logstasher.mailer_enabled = false
+  # config.logstasher.record_enabled = false
+  # config.logstasher.view_enabled = false
+
+  config.logstasher.log_level = :error
+
+  # This line is optional if you do not want to suppress app logs in your <environment>.log
+  config.logstasher.suppress_app_log = true
+
+  # This line is optional, it allows you to set a custom value for the @source field of the log event
+  #config.logstasher.source = 'your.arbitrary.source'
+
+  # This line is optional if you do not want to log the backtrace of exceptions
+  # config.logstasher.backtrace = false
+
+  # This line is optional, defaults to log/logstasher_<environment>.log
+  # config.logstasher.logger_path = 'log/logstasher.log'
 end

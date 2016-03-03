@@ -7,22 +7,26 @@ class ApplicationController < ActionController::Base
   helper_method :transactions_list
 
   rescue_from StandardError do |exception|
+    logger.error('This is really super bad')
     logger.error(exception)
     #exception.backtrace.each { |line| logger.error(line) }
     render "errors/something_went_wrong"
   end
 
   rescue_from ApiClient::Error do |exception|
+    logger.error('This is really super bad')
     logger.error(exception)
     render "errors/something_went_wrong"
   end
 
   rescue_from ApiClient::SessionError do |exception|
+    logger.error('This is really super bad')
     logger.error(exception)
     render "errors/session_error"
   end
 
   rescue_from ApiClient::SessionTimeoutError do |exception|
+    logger.error('This is really super bad')
     logger.error(exception)
     render "errors/session_timeout"
   end
