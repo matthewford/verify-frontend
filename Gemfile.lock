@@ -103,6 +103,11 @@ GEM
       thor (~> 0.14)
     json (1.8.3)
     libv8 (3.16.14.13)
+    lograge (0.3.6)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
+    logstash-event (1.2.02)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -243,6 +248,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-validation-rails (~> 1.13, >= 1.13.1)
+  lograge
+  logstash-event
   puma
   rack-handlers
   rails (= 4.2.5.2)
