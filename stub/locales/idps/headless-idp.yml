@@ -1,0 +1,8 @@
+en:
+  idps:
+    headless-idp:
+      name: "Headless IdP"
+cy:
+  idps:
+    headless-idp:
+      name: "Welsh Headless IdP"
