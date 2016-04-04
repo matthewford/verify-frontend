@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     get 'privacy-notice', to: redirect("#{API_HOST}/privacy-notice"), as: :privacy_notice
     get 'cookies', to: redirect("#{API_HOST}/cookies"), as: :cookies
     get 'forgot-company', to: redirect("#{API_HOST}/forgot-company"), as: :forgot_company
-    get 'select-phone', to: redirect("#{API_HOST}/select-phone"), as: :select_phone
+    get 'select-phone', to: redirect { |params, request| "#{API_HOST}/select-phone?#{request.params.to_query}"}, as: :select_phone
     get 'unlikely-to-verify', to: redirect("#{API_HOST}/unlikely-to-verify"), as: :unlikely_to_verify
   else
     get 'confirm-your-identity', to: 'confirm_your_identity#index', as: :confirm_your_identity
