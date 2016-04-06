@@ -7,7 +7,7 @@ class SelectDocumentsController < ApplicationController
 
   def select_documents
     ANALYTICS_REPORTER.report(request, 'Select Documents Next')
-    @form = SelectDocumentsForm.new(params[:select_documents_form])
+    @form = SelectDocumentsForm.new(params[:select_documents_form] || {})
     if @form.valid?
       selected_evidence = @form.selected_evidence
       if IDP_ELIGIBILITY_CHECKER.any_for_documents?(selected_evidence, available_idps)
